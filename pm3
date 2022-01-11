@@ -1,0 +1,23 @@
+#!/bin/bash
+#
+# REDD's Lazy Connect Script for Termux to Proxmark3 Client.
+#
+
+# Location of Proxmark3 Client source in Termux
+PM3_DIR="${HOME}/proxmark3/client"
+# BL-TCP Server IP (There's no place like home.)
+TCP_HOST="127.0.0.1"
+# BL-TCP Server Port
+TCP_PORT="4321"
+# Location where you want the Proxmark3 to sit while running
+NFC_DUMPS="${HOME}/dumps"
+
+# Check if Dump location even exists, if not create
+if [ ! -f "${NFC_DUMPS}" ]; then
+        mkdir -p ${NFC_DUMPS}
+fi
+
+# Enter Dump location
+cd ${NFC_DUMPS}
+# Run Proxmark3 using BL-TCP connection
+${PM3_DIR}/proxmark3 tcp:${TCP_HOST}:${TCP_PORT}
