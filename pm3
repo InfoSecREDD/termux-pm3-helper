@@ -20,4 +20,4 @@ fi
 # Enter Dump location
 cd ${NFC_DUMPS}
 # Run Proxmark3 using BL-TCP connection
-${PM3_DIR}/proxmark3 tcp:${TCP_HOST}:${TCP_PORT}
+${PM3_DIR}/proxmark3 tcp:${TCP_HOST}:${TCP_PORT} $@
